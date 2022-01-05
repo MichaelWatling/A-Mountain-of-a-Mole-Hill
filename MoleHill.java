@@ -1,4 +1,5 @@
 import java.util.Scanner;
+/*Created by Michael Watling 05/01/2022*/
 
 public class MoleHill {
     public static void main(String args[]) {
@@ -22,7 +23,9 @@ public class MoleHill {
 
         System.out.println(result);
     }
-
+    /*This finds the top right post of a potential garden, and checks to see if the top left neighbour and top right neighbour are x's. If they are, you are either still
+inside but this is a completed area or you are outside the garden walls.
+Returns negative values to show a failure to find a new starting point, ending the cycle.*/
     public static int[] findPost(char[][] matrix, int h, int w){
         for(int i = 0; i < h; i++){
             for(int j = 0; j < w; j++){
@@ -52,7 +55,9 @@ public class MoleHill {
         int[] coords = new int[]{-1, -1};
         return coords;
     }
-
+/*Flood takes in the coordinates of the first garden space and floods the area looking for moles, tracking where it has been using X's.
+This is an 8 way flood to take into account for diagonals.
+x = x coordinate, y = y coordinate, h = height or matrix, w = width of matrix*/
     public static int flood(char[][] matrix, int x, int y, int h, int w){
         int count = 0;
         if(matrix[x][y] == 'o'){

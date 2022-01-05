@@ -19,7 +19,7 @@ def findPost(matrix, h, w):
 
 
 """Flood takes in the coordinates of the first garden space and floods the area looking for moles, tracking where it has been using X's.
-This is an 8 way flood to take into account for diangonals.
+This is an 8 way flood to take into account for diagonals.
 x = x coordinate, y = y coordinate, h = height or matrix, w = width of matrix""" 
 def flood(matrix, x, y, h, w,):
     count = 0
@@ -36,7 +36,7 @@ def flood(matrix, x, y, h, w,):
         if x+1 < h and y >= 1: count += flood(matrix,x+1,y-1,h,w)
         if x+1 < h and y+1 < w: count += flood(matrix,x+1,y+1,h,w)
         newCoords = findPost(matrix, h,w)
-        if(newCoords[0]!= -1): count+=flood(Matrix,newCoords[0],newCoords[1],height,width)
+        if(newCoords[0]!= -1): count+=flood(matrix,newCoords[0],newCoords[1],h,w)
     return count
     
 if __name__ == "__main__":
